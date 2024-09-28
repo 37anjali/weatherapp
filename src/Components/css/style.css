@@ -53,8 +53,21 @@ body{
     color: rgb(61, 61, 68);
     font-size:80px;
     margin-left: 20px;
+    position: relative;
+    animation-name: example;
+    animation-duration: 3s;  
+    animation-fill-mode: forwards;
+  
 
 }
+@keyframes example {
+    0%   {color:rgb(16, 147, 132); left:0px; top:0px;}
+    25%  {color:rgb(95, 186, 202); left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:rgb(152, 181, 152); left:0px; top:200px;}
+    100% {color:rgb(80, 73, 73); left:0px; top:0px;}
+  }
+  
 .wave{
     opacity: 0.3;
     position: absolute;
