@@ -9,7 +9,7 @@ const Temapp = () => {
 
   useEffect(()=>{
     const fetchApi = async () => {
-      const url  = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=e0a9aaf50e0895f923f437f6b148cd0f`
+      const url  =(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=e0a9aaf50e0895f923f437f6b148cd0f`)
       const response = await fetch(url);
       const resJson = await response.json();
       //console.log(resJson);
@@ -21,28 +21,30 @@ const Temapp = () => {
     fetchApi();
   },[search])
   return (
-    <div className='box'>
+    <div className='box d-flex flex-column justify-content-center'>
+       
         <div className='inputData'>
-            <input type="search"  className='inputFeild' onChange={(event)=>{setSearch(event.target.value)}}/>
+        <input type="search"  className='inputFeild' onChange={(event)=>{setSearch(event.target.value)}}/>
 
         </div>
 
         {!city ? (
-          <p className='errorMsg'>No data Found</p>
+          <h1 className='errorMsg '>No data Found</h1>
         ) :(
-        <div>
+        <div className=''>
           <div className='info'> 
-          <h2 className='Location'>
-          <i className="bi bi-universal-access icon"></i>{search}</h2>
-          <h1 className='temp'>
+          
+          <i class="bi bi-clouds-fill icon"></i>
+          <h2 className='Location ml-4 loc'>{search}</h2>
+          <h2 className='temp text-center headingtwo '>
           {city.temp}°C
-          </h1>
-          <h3 className='tempmin_max'>Min : {city.temp_min}°C | Max : {city.temp_max}°C </h3>
+          </h2>
+          <h3 className='tempmin_max heading'>Min : {city.temp_min}°C || Max : {city.temp_max}°C </h3>
        </div>
-       <div className='wave'></div>
+       {/* <div className='wave'></div>
        <div className='wave-one'></div>
        <div className='wave-two'></div>
-       <div className='wave-three'></div>
+       <div className='wave-three'></div> */}
        </div>
         )}
 
